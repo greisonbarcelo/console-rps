@@ -1,5 +1,5 @@
 # console-rps
-Refresher repo for Rock Paper Scissors
+Refresher repo for Rock Paper Scissors from TheOdinProject.
 
 
 ## pseudo code
