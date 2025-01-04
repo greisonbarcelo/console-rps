@@ -1,8 +1,8 @@
-## console-rps ##
+# console-rps ##
 Refresher repo for Rock Paper Scissors
 
 
-# pseudo code
+## pseudo code
 choices are: rock, paper, scissor
 
 get user choice using getHumanChoice using prompt to be stored in a parameter humanChoice
@@ -15,7 +15,7 @@ add score to whoever wins, humanScore and computerScore
 add stopping function to whoever have the highest score after 5 rounds then declare the winner to console log
 create playGame() function and should have playRound() inside of it 
 
-# choices logic heirarchy
+## choices logic heirarchy
 logic: 
 rock > scissor
 rock < paper
