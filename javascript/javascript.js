@@ -1,4 +1,11 @@
-// console.log("test");
 
-let randomNum = Math.floor(Math.random()*3)+1;
-console.log(`test ${randomNum}`);
+// console.log(getComputeChoice());
+
+function getComputeChoice() {
+    let choices = ["rock", "paper", "scissor"];
+    return choices[Math.floor(Math.random()*choices.length)];
+}
+function getHumanChoice() {
+    let choice = prompt("Enter your choice: ", "").toLowerCase();
+    return choice;
+}
