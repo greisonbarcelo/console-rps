@@ -1,4 +1,4 @@
-# console-rps ##
+# console-rps
 Refresher repo for Rock Paper Scissors
 
 
