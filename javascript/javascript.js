@@ -8,26 +8,47 @@ function getHumanChoice() {
     return choice;
 }
 
-let playerScore = 0;
-let computerScore = 0;
-
 function playRound(humanChoice, computerChoice) {
     if ((humanChoice == 'rock' && computerChoice == 'scissor') || (humanChoice == 'paper' && computerChoice == 'rock') || (humanChoice == 'scissor' && computerChoice == 'paper')) {
         playerScore += 1;
-        return `You won! ${humanChoice} beats computer\'s ${computerChoice}.`;
+        return console.log(`You won! ${humanChoice} beats computer\'s ${computerChoice}.`);
     } else if ((computerChoice == 'rock' && humanChoice == 'scissor') || (computerChoice == 'paper' && humanChoice == 'rock') || (computerChoice == 'scissor' && humanChoice == 'paper')) {
          computerScore += 1;
-        return `You lost! ${computerChoice} beats your ${humanChoice}.`;
+        return console.log(`You lost! ${computerChoice} beats your ${humanChoice}.`);
     } else if (humanChoice == computerChoice) {
-        return `It\'s a tie! You both picked ${humanChoice}. `;
+        return console.log(`It\'s a tie! You both picked ${humanChoice}. `);
     } else {
-        return `Your input \'${humanChoice}\' was invalid.`;
+        return console.log(`Your input \'${humanChoice}\' was invalid.`);
     }
 }
 
-let humanSelection = getHumanChoice();
-let computerSelection = getComputeChoice();
+let playerScore = 0;
+let computerScore = 0;
 
+// console.log(humanSelection + computerSelection)
+// playRound(humanSelection, computerSelection);
 
-console.log(humanSelection + computerSelection)
-console.log(playRound(humanSelection, computerSelection));
+function declareWiner(playerScore,computerScore) {
+    if(playerScore > computerScore) {
+        return console.log(`Player wins game! Final score of USER: ${playerScore}, COMPUTER: ${computerScore}`);
+    } else if (computerScore > playerScore) {
+        return console.log(`Computer wins game! Final score of USER: ${playerScore}, COMPUTER: ${computerScore}`);
+    } else return console.log(`It\'s a tie! Final score of USER: ${playerScore}, COMPUTER: ${computerScore}`);
+}
+function playGame() {
+    for(let i = 1; i <= 5; i++) {
+        console.log(`Round ${i}. User: ${playerScore}, Computer: ${computerScore}`);
+        let humanSelection = getHumanChoice();
+        let computerSelection = getComputeChoice();
+        // console.log(humanSelection + computerSelection);
+        playRound(humanSelection, computerSelection);
+
+    }
+    declareWiner(playerScore, computerScore);
+    if(confirm('Play Again?')){
+        playerScore = 0; computerScore = 0
+        console.clear();
+        playGame();
+    }
+}
+playGame();
