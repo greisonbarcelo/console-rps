@@ -1,7 +1,7 @@
 
 function getComputeChoice() {
     let choices = ["rock", "paper", "scissor"];
-    return  'paper'//choices[Math.floor(Math.random()*choices.length)];
+    return  choices[Math.floor(Math.random()*choices.length)];
 }
 function getHumanChoice() {
     let choice = prompt("Enter your choice: ", "").toLowerCase();
