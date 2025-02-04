@@ -8,7 +8,6 @@ let playAgain = document.querySelector(".playAgain");
 let oneMore = document.querySelector(".oneMore");
 
 play.addEventListener("click", () => {
-    //intro.setAttribute("style", "display: none;");  
     intro.classList.add("hideElement");
     container.classList.remove("hideElement");
     scoreBoard.classList.remove("hideElement");
@@ -18,8 +17,8 @@ oneMore.addEventListener("click", () => {
     playAgain.classList.add("hideElement");
     scoreBoard.classList.remove("hideElement");
     container.classList.remove("hideElement");
-    let playerScore = 0;
-    let computerScore = 0;
+    playerScore = 0;
+    computerScore = 0;
     pScore.textContent = `Player: ${playerScore}`;
     cScore.textContent = `Computer: ${computerScore}`;
     paraRound.textContent = '';
@@ -39,24 +38,24 @@ function playRound(humanChoice, computerChoice) {
         score.appendChild(paraRound);
         pScore.textContent = `Player: ${playerScore}`;
         cScore.textContent = `Computer: ${computerScore}`;
-        return // console.log(`You won! ${humanChoice} beats computer\'s ${computerChoice}.`);
+        return 
     } else if ((computerChoice == 'rock' && humanChoice == 'scissor') || (computerChoice == 'paper' && humanChoice == 'rock') || (computerChoice == 'scissor' && humanChoice == 'paper')) {
          computerScore += 1;
          paraRound.textContent = `You lost! ${computerChoice} beats your ${humanChoice}.`;
          score.appendChild(paraRound);
          pScore.textContent = `Player: ${playerScore}`;
          cScore.textContent = `Computer: ${computerScore}`;
-        return // console.log(`You lost! ${computerChoice} beats your ${humanChoice}.`);
+        return 
     } else if (humanChoice == computerChoice) {
          paraRound.textContent = `It's a tie! You both picked ${humanChoice}.`;
          score.appendChild(paraRound);
          pScore.textContent = `Player: ${playerScore}`;
          cScore.textContent = `Computer: ${computerScore}`;
-        return // console.log(`It\'s a tie! You both picked ${humanChoice}. `);
+        return 
     } else {
         paraRound.textContent = `Your input \'${humanChoice}\' was invalid.`;
         score.appendChild(paraRound);
-        return //console.log(`Your input \'${humanChoice}\' was invalid.`);
+        return 
     }
 }
 
@@ -72,16 +71,16 @@ function declareWiner(playerScore,computerScore) {
         paraGame.textContent = `Player wins game! Final score of USER: ${playerScore}, COMPUTER: ${computerScore}`;
         score.appendChild(paraGame);
         playAgain.classList.remove("hideElement");
-        return //console.log(`Player wins game! Final score of USER: ${playerScore}, COMPUTER: ${computerScore}`);
+        return 
     } else if (computerScore == 5) {
         scoreBoard.classList.add("hideElement");
         container.classList.add("hideElement");
         paraGame.textContent = `Computer wins game! Final score of USER: ${playerScore}, COMPUTER: ${computerScore}`;
         score.appendChild(paraGame);
         playAgain.classList.remove("hideElement");
-        return //console.log(`Computer wins game! Final score of USER: ${playerScore}, COMPUTER: ${computerScore}`);
+        return
     } 
-    return //console.log(`It\'s a tie! Final score of USER: ${playerScore}, COMPUTER: ${computerScore}`);
+    return 
 }
 
 
@@ -104,7 +103,7 @@ buttons.forEach(button => {
     humanSelection = getHumanChoice(button);
     let computerSelection = getComputeChoice();
     console.log(`Computer: ${computerSelection} User: ${humanSelection}`);
-        
+       
     playRound(humanSelection, computerSelection);
     declareWiner(playerScore, computerScore);
 
@@ -117,16 +116,6 @@ const score = document.querySelector(".score");
 let paraRound = document.createElement("p");
 let paraGame = document.createElement("p");
 
-function playGame() {
-    for(let i = 1; i <= 5; i++) {
-        
-        let computerSelection = getComputeChoice();
-        console.log(`Computer: ${computerSelection} User: ${humanSelection}`);
-
-        playRound(humanSelection, computerSelection);
-    }
-    declareWiner(playerScore, computerScore);
-}
 
 
 
